@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>简单的记账本</title>
+    </head>
+    <body>
+        <div class="container" style="margin: 20px 50px">
+            <div style="width: 70%; float: left">
+                <table id="billTable">
+                    <tr>
+                        <th style="width: 20%">账单类型</th>
+                        <th style="width: 40%">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">账单时间
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li onclick="listMonthData(0)"><a href="#">全部</a></li>
+                                    <li onclick="listMonthData(1)"><a href="#">1月</a></li>
+                                    <li onclick="listMonthData(2)"><a href="#">2月</a></li>
+                                    <li onclick="listMonthData(3)"><a href="#">3月</a></li>
+                                    <li onclick="listMonthData(4)"><a href="#">4月</a></li>
+                                    <li onclick="listMonthData(5)"><a href="#">5月</a></li>
+                                    <li onclick="listMonthData(6)"><a href="#">6月</a></li>
+                                    <li onclick="listMonthData(7)"><a href="#">7月</a></li>
+                                    <li onclick="listMonthData(8)"><a href="#">8月</a></li>
+                                    <li onclick="listMonthData(9)"><a href="#">9月</a></li>
+                                    <li onclick="listMonthData(10)"><a href="#">10月</a></li>
+                                    <li onclick="listMonthData(11)"><a href="#">11月</a></li>
+                                    <li onclick="listMonthData(12)"><a href="#">12月</a></li>
+                                </ul>
+                            </div>
+                        </th>
+                        <th style="width: 30%">账单分类</th>
+                        <th style="width: 25%">账单金额 (¥)</th>
+                    </tr>
+                </table>
+            </div>
+        
+            <div style="width: 25%; float: right">
+                <table id="statTable">
+                    <tr>
+                        <th>收入 (¥)</th>
+                        <th>支出 (¥)</th>
+                    </tr>
+                </table>
+
+                <form style="margin: 40px 0" action="http://54.144.240.214:8080/myaction" method="post">
+                    <label>账单类型<span style="color: red">*</span></label>
+                    <select id="type" name="type" style="width: 100%">
+                        <option value="1">收入</option>
+                        <option value="0">支出</option>
+                    </select>
+                    <label>账单时间<span style="color: red">*</span></label>
+                    <input type="datetime-local" step="1" id="time" name="time" style="width: 100%; border-radius: 2px">
+                    <label>账单分类</label>
+                    <select id="category" name="category" style="width: 100%">
+                        <option selected value></option>
+                    </select>
+                    <label>账单金额<span style="color: red">*</span></label>
+                    <input type="text" id="amount" name="amount" style="width: 100%; border-radius: 2px">
+
+                    <input type="submit" value="新增" onclick="addBill()">
+                    <input type="reset" value="清空">
+                </form>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="simple_account_book.js"></script>
+
+    </body>
+</html>
